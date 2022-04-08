@@ -10,6 +10,7 @@ const routes = [
     name: 'home-view',
     component: HomeView
   },
+<<<<<<< HEAD
   {
     path: '/details', // colon: declares a dynamic segment in the path 
     name: 'DestinationDetails',
@@ -17,6 +18,8 @@ const routes = [
       import(/*webpackChunkName: "DestinationDetails" */'../views/DestinationDetails' )
     }
   }
+=======
+>>>>>>> c8927687dc6d5cf856c1ac4e4237606dd316bb02
 
 ]
 

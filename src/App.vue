@@ -89,4 +89,7 @@ export default {
   }),
 };
 </script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8927687dc6d5cf856c1ac4e4237606dd316bb02
