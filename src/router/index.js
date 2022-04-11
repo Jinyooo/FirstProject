@@ -1,26 +1,35 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import LeaveImView from '@/views/LeaveImView.vue'
+import PopularView from '@/views/PopularView.vue'
+import HashtagView from '@/views/HashtagView.vue'
+import MaintagView from '@/components/TagMain.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home-view',
-    component: HomeView
-  },
-<<<<<<< HEAD
-  {
-    path: '/details', // colon: declares a dynamic segment in the path 
-    name: 'DestinationDetails',
-    component: ()=>{
-      import(/*webpackChunkName: "DestinationDetails" */'../views/DestinationDetails' )
-    }
-  }
-=======
->>>>>>> c8927687dc6d5cf856c1ac4e4237606dd316bb02
+    components: {
+      leaveIm: LeaveImView,
+      popular: PopularView,
+      hashtag: HashtagView,
+      TagMain: MaintagView 
+    },
+    chilren: [
 
+      {
+        path: 'restaurants', 
+        component: () => import('@/components/TagRestaurants.vue')
+      },
+      {
+        path: 'activities', 
+        component: () => import('@/components/TagActivities.vue')
+      }
+    ]
+  }
+    
 ]
 
 const router = new VueRouter({
