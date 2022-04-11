@@ -1,9 +1,8 @@
 <template>
     <div>
+    <v-sheet class="mx-auto my-5">
         <h3>지금 인기</h3>
-        <v-sheet
-        class="mx-5 my-5"
-        >
+        
             <v-slide-group
             multiple 
             show-arrows
@@ -13,20 +12,24 @@
                 v-for="(destination, i) in destinations"
                 :key="i"
                 >
-                <v-img 
-                :src="destination.src" alt="destination.name"
-                width="300" class="mx-2"
-                gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)"
-                >
-                <div>
-                    <h1><a style="color: white; position: 0px 150px; "
-                    >
-                    {{ destination.name }}</a></h1>
-                </div>
-                </v-img>
+                <v-hover v-slot="{ hover }">
+                    <v-card :class="{ 'imgOpacity' : hover }" width="300" class="mx-2">
+                        <v-img
+                        :src="destination.src" alt="destination.name">
+                        <div class="title">
+                            <h1>
+                                <a @click="$router.push('/guam')"
+                                :class="{ 'show-title' : hover }">
+                                    {{ destination.name }}
+                                </a>
+                            </h1>
+                        </div>
+                        </v-img>
+                    </v-card> 
+                </v-hover>
                 </v-slide-item>
             </v-slide-group>
-            </v-sheet>
+        </v-sheet>
     </div>
 </template>
 
@@ -51,5 +54,24 @@ export default {
 }
 h3 {
     font-family: GangwonEduPowerExtraBoldA, sans-serif;
+}
+.v-sheet {
+    position: relative;
+    left: 2%;  
+}
+.imgOpacity {
+    opacity: 0.6;
+    transition: .3s ease-in-out;
+}
+.title {
+    visibility: hidden;
+    position: relative;
+    bottom: -80%; left: 5%;
+}
+.show-title {
+    visibility: visible;
+    color: rgba(255, 255, 255, 1) !important;
+    transition: opacity .6s ease-in-out;
+
 }
 </style>

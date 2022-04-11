@@ -28,8 +28,29 @@ const routes = [
         component: () => import('@/components/TagActivities.vue')
       }
     ]
-  }
-    
+  },
+  {
+    path: '/osaka',
+    component: ()=> import(/*webpackChunkName: "osaka"*/'../components/osaka.vue')
+
+  },
+  {
+    path: '/danang',
+    component: ()=> import(/*webpackChunkName: "danang" */'../components/danang.vue')
+  },
+  {
+    path: '/paris',
+    component: ()=> import(/*webpackChunkName: "paris" */'../components/paris.vue')
+  },
+  {
+    path: '/guam',
+    component: ()=> import(/*webpackChunkName: "guam" */'../components/guam.vue')
+  },
+  {
+    path: '/bangkok',
+    component: ()=> import(/*webpackChunkName: "bangkok" */'../components/bangkok.vue')
+  },
+  
 ]
 
 const router = new VueRouter({

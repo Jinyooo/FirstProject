@@ -15,22 +15,21 @@
         v-for="(destination, i) in destinations"
         :key="i"
         >
-          <v-img 
-          :src="destination.src" alt="destination.name"
-          width="300" class="mx-2"
-          gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)"
-          >
-          <div>
-            <h1>
-              <a 
-              @click="$router.push('/guam')"
-              style="color: white; position: 0px 150px;">
-                {{ destination.name }}
-              </a>
-              
-            </h1>
-          </div>
-          </v-img>
+        <v-hover v-slot="{ hover }">
+          <v-card :class="{ 'imgOpacity' : hover }" width="300" class="mx-2">
+            <v-img
+            :src="destination.src" alt="destination.name">
+              <div class="title">
+                  <h1>
+                    <router-link :to="`/${destination.slug}`" ><a
+                      :class="{ 'show-title' : hover }">{{ destination.name }}</a></router-link> 
+                    
+                  </h1>
+              </div>
+            </v-img>
+          </v-card>
+            
+          </v-hover>
         </v-slide-item>
       </v-slide-group>
     </v-sheet>
@@ -41,11 +40,20 @@
   
   export default {
     name: 'leave-im',
-    data : ()=>({
+    data: ()=>({
       model : null,
       showname : false,
-      destinations : store.destinations      
-    })
+      destinations : store.destinations  ,
+      transparent: 'rgba(255, 255, 255, 0)',    
+    }),
+    /*components: [
+      { name: 'osaka', path: '/osaka'},
+      { name: 'danang', path: '/danang'},
+      { name: 'paris', path: '/paris'},
+      { name: 'guam', path: '/guam'},
+      { name: 'bangkok', path: '/bangkok'},
+    ] */
+
   };
 </script>
 
@@ -59,6 +67,26 @@
 }
 h3 {
   font-family: GangwonEduPowerExtraBoldA, sans-serif;
+
+}
+.v-sheet {
+  position: relative;
+  left: 2%;  
+}
+.imgOpacity {
+  opacity: 0.6;
+  transition: .3s ease-in-out;
+}
+.title {
+  visibility: hidden;
+  position: relative;
+  bottom: -80%; left: 5%;
+}
+.show-title {
+  visibility: visible;
+  color: rgba(255, 255, 255, 1) !important;
+  transition: opacity .6s ease-in-out;
+
 }
 </style>
 
