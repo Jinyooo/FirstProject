@@ -14,14 +14,14 @@
 
       <!-- 중앙 로고 -->
       <div class="d-flex align-center">
-        <v-img
+        <!-- <v-img
           alt="TripA Logo"
           class="shrink mr-2"
           contain
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
           transition="scale-transition"
           width="40" @click="$router.push('/')"
-        />
+        /> -->
         <v-toolbar-title 
         >Trip A</v-toolbar-title>
       </div>
@@ -135,9 +135,9 @@
       <!-- 해시태그 게시물 보이는 곳 -->
       <router-view name="TagMain"/>
 
-      <footer>
-      <p>Copyright All Rights Reserved &copy; 2022 </p>
-    </footer>
+      <router-view/> <!-- 이름 없는 라우터를 새 페이지로 연결시키기 위해서 이름 없는 router-view 를 넣어줘야함 -->
+
+
     </v-main>
 
     
