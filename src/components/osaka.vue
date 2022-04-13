@@ -5,10 +5,22 @@
         <v-app-bar app flat>
             
             <v-btn icon>
-                <v-icon size="40" @click="$router.push('/')">mdi-chevron-left</v-icon>
+                <v-icon size="40" @click="$router.push('/tripa')">mdi-chevron-left</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
             
+            <!-- 중앙 로고 -->
+            <div class="d-flex align-center">
+                <v-img
+                alt="TripA Logo"
+                class="shrink mr-2"
+                contain
+                src="../assets/trpAlogo.png"
+                transition="scale-transition"
+                width="90" @click="$router.push('/tripa')"
+                />
+            </div>
+            <v-spacer></v-spacer>
 
             <!-- 검색을 누르면 출력되는 화면 -->
             <v-dialog v-model="search" fullscreen transition="dialog-top-transition">
@@ -236,9 +248,10 @@ export default {
         drawer : false,
                 
         photos : [
-            'https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704__340.jpg',
-            'https://cdn.pixabay.com/photo/2021/08/14/04/15/mountains-6544522__480.jpg',
-            'https://cdn.pixabay.com/photo/2018/03/12/20/07/maldives-3220702__480.jpg'
+            'https://cdn.pixabay.com/photo/2015/01/15/14/29/symbol-600334__480.jpg',
+            'https://cdn.pixabay.com/photo/2020/04/23/04/50/japan-5081058__480.jpg',
+            'https://cdn.pixabay.com/photo/2021/06/12/02/38/cherry-blossoms-6329828__340.jpg',
+            'https://cdn.pixabay.com/photo/2020/09/14/22/27/river-5572289__340.jpg'
         ],
         onList : false,
         type : 0,

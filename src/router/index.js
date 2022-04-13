@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/tripa',
     components: {
       leaveIm: LeaveImView,
       popular: PopularView,
@@ -18,11 +18,22 @@ const routes = [
       TagMain: MaintagView 
     },
     children: [
-
         {
-          path: ':',
+          path: '/tripa',
+          component: ()=> import('../components/TagMain.vue')
+        },
+        {
+          path: '/restaurants',
           component: ()=> import('../components/TagRestaurants.vue')
         },
+        {
+          path: '/activities',
+          component: ()=> import('../components/TagActivities.vue')
+        },
+        {
+          path: '/photogenic',
+          component: ()=> import('../components/TagPhotogenic.vue')
+        }
     ]
   },
   {

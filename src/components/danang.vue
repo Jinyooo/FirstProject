@@ -4,10 +4,22 @@
         <v-app-bar app flat>
             
             <v-btn icon>
-                <v-icon size="40" @click="$router.push('/')">mdi-chevron-left</v-icon>
+                <v-icon size="40" @click="$router.push('/tripa')">mdi-chevron-left</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
-            <v-toolbar-title >My App</v-toolbar-title>
+
+            <!-- 중앙 로고 -->
+            <div class="d-flex align-center">
+                <v-img
+                alt="TripA Logo"
+                class="shrink mr-2"
+                contain
+                src="../assets/trpAlogo.png"
+                transition="scale-transition"
+                width="90" @click="$router.push('/tripa')"
+                />
+            </div>
+            <v-spacer></v-spacer>
             
             <!-- 검색을 누르면 출력되는 화면 -->
             <v-dialog v-model="search" fullscreen transition="dialog-top-transition">
@@ -69,30 +81,30 @@
         right
         temporary
         >
-        <v-toolbar flat>
-            <v-list nav dense>
-                <v-list-item>
-                    <v-list-item-avatar>
-                            <v-icon class="grey white--text">mdi-account</v-icon>
-                        </v-list-item-avatar>
+            <v-toolbar flat>
+                <v-list nav dense>
+                    <v-list-item>
+                        <v-list-item-avatar>
+                                <v-icon class="grey white--text">mdi-account</v-icon>
+                            </v-list-item-avatar>
 
-                    <v-list-item-content>
-                        <v-list-item-title><a href="#">마이페이지</a></v-list-item-title>
-                        <v-list-item-subtitle ><a href="#">로그인</a></v-list-item-subtitle>
-                    </v-list-item-content>
+                        <v-list-item-content>
+                            <v-list-item-title><a href="#">마이페이지</a></v-list-item-title>
+                            <v-list-item-subtitle ><a href="#">로그인</a></v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-toolbar>
+            <v-divider></v-divider>
+
+            <!-- 네비게이션 서랍 메뉴 -->
+            <v-list>
+                <v-list-item>
+                    <v-lsit-item-content v-for="n in 5" :key="n">
+                        <v-list-item-title>Menu {{n}}</v-list-item-title>
+                    </v-lsit-item-content>
                 </v-list-item>
             </v-list>
-        </v-toolbar>
-        <v-divider></v-divider>
-
-        <!-- 네비게이션 서랍 메뉴 -->
-        <v-list>
-            <v-list-item>
-                <v-lsit-item-content>
-                    <v-list-item-title>Menu1</v-list-item-title>
-                </v-lsit-item-content>
-            </v-list-item>
-        </v-list>
         
         </v-navigation-drawer>
 
@@ -236,9 +248,10 @@ export default {
         drawer : false,
                 
         photos : [
-            'https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704__340.jpg',
-            'https://cdn.pixabay.com/photo/2021/08/14/04/15/mountains-6544522__480.jpg',
-            'https://cdn.pixabay.com/photo/2018/03/12/20/07/maldives-3220702__480.jpg'
+            'https://cdn.pixabay.com/photo/2018/08/17/03/49/great-3612031__480.jpg',
+            'https://cdn.pixabay.com/photo/2019/09/10/13/24/bicycle-4466113__340.jpg',
+            'https://cdn.pixabay.com/photo/2019/06/21/07/02/hoian-4288741__480.jpg',
+            'https://cdn.pixabay.com/photo/2020/09/02/08/52/farm-5537759__480.jpg'
         ],
         onList : false,
         type : 0,
@@ -250,10 +263,7 @@ export default {
         
     }),
     methods : {
-        group: () => {
-            this.drawer = false;
-        },
-        addtoFavorites : ()=> {
+        addtoFavorites : function() {
             this.onList = !this.onList;
         },
         submitSearch: function() {

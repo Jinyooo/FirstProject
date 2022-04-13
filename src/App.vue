@@ -14,16 +14,14 @@
 
       <!-- 중앙 로고 -->
       <div class="d-flex align-center">
-        <!-- <v-img
+        <v-img
           alt="TripA Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="./assets/trpAlogo.png"
           transition="scale-transition"
-          width="40" @click="$router.push('/')"
-        /> -->
-        <v-toolbar-title 
-        >Trip A</v-toolbar-title>
+          width="90" @click="$router.push('/tripa')"
+        />
       </div>
       <v-spacer></v-spacer>
 
@@ -160,7 +158,7 @@ export default {
   methods: {
     submitSearch: function() {
       this.search = false;
-      this.$router.push('/');
+      this.$router.push('/tripa');
       
     }
   }

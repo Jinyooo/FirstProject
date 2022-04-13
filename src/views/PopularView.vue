@@ -9,24 +9,27 @@
             center-active
             >
                 <v-slide-item 
-                v-for="(destination, i) in destinations"
+                v-for="(pic, i) in popular"
                 :key="i"
                 >
-                <v-hover v-slot="{ hover }">
+                
+                    <v-hover v-slot="{ hover }"><v-flex xs6 sm6 md6 xl3 >
                     <v-card :class="{ 'imgOpacity' : hover }" width="300" class="mx-2">
                         <v-img
-                        :src="destination.src" alt="destination.name">
+                        :src="pic.src" alt="pic.name" height="100%">
                         <div class="title">
                             <h1>
-                                <a @click="$router.push('/guam')"
+                                <a
                                 :class="{ 'show-title' : hover }">
-                                    {{ destination.name }}
+                                    {{ pic.name }}
                                 </a>
                             </h1>
                         </div>
                         </v-img>
-                    </v-card> 
+                    </v-card> </v-flex>
                 </v-hover>
+                
+                
                 </v-slide-item>
             </v-slide-group>
         </v-sheet>
@@ -34,11 +37,11 @@
 </template>
 
 <script>
-import store from '@/assets/store'
+import store from '@/assets/store.js'
 export default {
     name: 'popular-view',
     data: ()=>({
-        destinations: store.destinations
+        popular: store.randompic
         
     }),
 
@@ -52,8 +55,18 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'LeferiPoint-SpecialA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-SpecialA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 h2 {
     font-family: GangwonEduPowerExtraBoldA, sans-serif;
+}
+a {
+    font-family: LeferiPoint-SpecialA, sans-serif;
+    
 }
 .v-sheet {
     position: relative;
