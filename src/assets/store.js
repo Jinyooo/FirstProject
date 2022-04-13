@@ -71,7 +71,6 @@ export default {
         { src: "https://cdn.pixabay.com/photo/2020/01/12/16/57/stadium-4760441__340.jpg", name: "경기 관람권"},
         { src: "https://cdn.pixabay.com/photo/2016/11/19/11/11/dua-lipa-1838653__340.jpg", name: "공연티켓 할인" },
         { src: "https://cdn.pixabay.com/photo/2013/08/09/17/16/band-171117__480.jpg", name: "바 호핑" },
-        { src: "https://cdn.pixabay.com/photo/2021/10/09/20/18/pagoda-6695100__480.jpg", name: "입장권 할인" },
-        { src: "https://cdn.pixabay.com/photo/2016/01/29/20/57/rollercoaster-1168670__480.jpg", name: "놀이공원 입장권" }
+        
     ]
 }
