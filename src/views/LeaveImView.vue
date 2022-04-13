@@ -1,11 +1,6 @@
 <template>
-    <v-sheet
-    class="mx-auto my-5"
-    
-    >
-    <h3>바로 출발</h3>    
-
-
+    <v-sheet class=" my-5">
+    <h2>바로 출발</h2>
       <v-slide-group
       multiple 
       show-arrows
@@ -65,13 +60,14 @@
     font-weight: normal;
     font-style: normal;
 }
-h3 {
+h2 {
   font-family: GangwonEduPowerExtraBoldA, sans-serif;
 
 }
 .v-sheet {
   position: relative;
-  left: 2%;  
+  margin: 3%;
+
 }
 .imgOpacity {
   opacity: 0.6;

@@ -17,16 +17,12 @@ const routes = [
       hashtag: HashtagView,
       TagMain: MaintagView 
     },
-    chilren: [
+    children: [
 
-      {
-        path: 'restaurants', 
-        component: () => import('@/components/TagRestaurants.vue')
-      },
-      {
-        path: 'activities', 
-        component: () => import('@/components/TagActivities.vue')
-      }
+        {
+          path: ':',
+          component: ()=> import('../components/TagRestaurants.vue')
+        },
     ]
   },
   {
@@ -50,7 +46,7 @@ const routes = [
     path: '/bangkok',
     component: ()=> import(/*webpackChunkName: "bangkok" */'../components/bangkok.vue')
   },
-  
+
 ]
 
 const router = new VueRouter({

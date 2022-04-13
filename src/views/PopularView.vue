@@ -1,7 +1,7 @@
 <template>
     <div>
-    <v-sheet class="mx-auto my-5">
-        <h3>지금 인기</h3>
+    <v-sheet class="my-5">
+        <h2>지금 인기</h2>
         
             <v-slide-group
             multiple 
@@ -52,12 +52,12 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
-h3 {
+h2 {
     font-family: GangwonEduPowerExtraBoldA, sans-serif;
 }
 .v-sheet {
     position: relative;
-    left: 2%;  
+    margin: 3%;
 }
 .imgOpacity {
     opacity: 0.6;

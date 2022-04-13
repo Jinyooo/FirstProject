@@ -27,7 +27,7 @@
       </div>
       <v-spacer></v-spacer>
 
-      <!-- 검색창 -->
+      <!-- 검색을 누르면 출력되는 화면 -->
       <v-dialog v-model="search" fullscreen transition="dialog-top-transition">
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
@@ -118,11 +118,11 @@
       <!-- 네비게이션 서랍 메뉴 -->
       <v-list>
           <v-list-item>
-              <v-lsit-item-content>
+              <v-list-item-content>
                   <v-list-item-title 
                   v-for="n in 5" :key="n"
                   class="ma-3"> Menu {{n}}</v-list-item-title>
-              </v-lsit-item-content>
+              </v-list-item-content>
           </v-list-item>
       </v-list>
       </v-navigation-drawer>
@@ -133,7 +133,6 @@
       <router-view name="popular"/>
       <router-view name="hashtag"/>
       <!-- 해시태그 게시물 보이는 곳 -->
-      <router-view name="TagMain"/>
 
       <router-view/> <!-- 이름 없는 라우터를 새 페이지로 연결시키기 위해서 이름 없는 router-view 를 넣어줘야함 -->
 

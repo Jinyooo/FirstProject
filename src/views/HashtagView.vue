@@ -1,18 +1,18 @@
 <template>
     <div>
+        <v-sheet>
+        <h2>실시간 키워드</h2>
         <!-- 해시태그 모음 -->
-        <v-slide-group>
+        <v-slide-group show-arrows="false">
             <v-slide-item v-for="hashtag in hashtags" :key="hashtag.name">
                 <v-btn class="tagnav">
-                    <router-link to="/"> {{ hashtag.name }} </router-link>
+                    <router-link :to=" `/${hashtag.path}` "> {{ hashtag.name }} </router-link>
                 </v-btn>
             </v-slide-item>
         </v-slide-group>
-        
 
-
-        <router-view name="restaurants"></router-view>
-        <router-view name="activities"></router-view>>
+        <router-view/>
+        </v-sheet>
     </div>
 </template>
 
@@ -20,9 +20,10 @@
 
 
 export default {
+    name: 'HashtagView',
     data: ()=> ({
         hashtags: [
-            { name: "#tripa", path: "maintag" },
+            { name: "#tripa", path: "tripa" },
             { name: "#restaurants", path: "restaurants" },
             { name: "#activities", path: "activities" }  
         ]
@@ -30,10 +31,26 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+h2 {
+    font-family: GangwonEduPowerExtraBoldA, sans-serif;
 
+}
+.v-sheet {
+    position: relative;
+    margin: 3%;
+}
+.v-slide-group {
+    padding: 4%;
+}
 .tagnav {
-    margin: 3px;
+    padding: 3px;
     color: transparent;
     box-shadow: none;
     border-radius: 50px;
@@ -42,4 +59,5 @@ export default {
 .tagnav a {
     text-decoration-line: none ;
 }
+
 </style>
