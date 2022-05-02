@@ -13,10 +13,10 @@
                 :key="i"
                 >
                 
-                    <v-hover v-slot="{ hover }"><v-flex xs6 sm6 md6 xl3 >
+                    <v-hover v-slot="{ hover }">
                     <v-card :class="{ 'imgOpacity' : hover }" width="300" class="mx-2">
                         <v-img
-                        :src="pic.src" alt="pic.name" height="100%">
+                        :src="pic.src" alt="pic.name">
                         <div class="title">
                             <h1>
                                 <a
@@ -26,7 +26,7 @@
                             </h1>
                         </div>
                         </v-img>
-                    </v-card> </v-flex>
+                    </v-card>
                 </v-hover>
                 
                 

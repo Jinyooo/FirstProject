@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/tripa',
+    path: '/',
     components: {
       leaveIm: LeaveImView,
       popular: PopularView,

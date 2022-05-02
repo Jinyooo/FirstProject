@@ -56,8 +56,8 @@
         <v-list>
             <v-list-item>
                 
-                <v-lsit-item-content>
-                    <v-list-item-title>Menu1</v-list-item-title>
+                <v-lsit-item-content >
+                    <v-list-item-title v-for="n in 5" :key="n" class="ma-3">Menu {{n}}</v-list-item-title>
                 </v-lsit-item-content>
             </v-list-item>
         </v-list>

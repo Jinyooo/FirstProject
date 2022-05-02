@@ -4,13 +4,20 @@
         <h2>실시간 키워드</h2>
         <!-- 해시태그 모음 -->
         <v-slide-group show-arrows>
-            <v-slide-item v-for="hashtag in hashtags" :key="hashtag.name">
-                <v-btn class="tagnav">
-                    <router-link :to=" `/${hashtag.path}` "> {{ hashtag.name }} </router-link>
-                </v-btn>
+            <v-slide-item v-for="hashtag in hashtags" :key="hashtag.name"
+            
+            >
+            <!--v-slot="{active, toggle}"
+                
+                <v-btn class="tagnav" input-value="active" 
+                :active-class="purple" @click="toggle"></v-btn>-->
+                
+                    <router-link :to=" `/${hashtag.path}` " class="ma-2"> {{ hashtag.name }} </router-link>
+                
             </v-slide-item>
         </v-slide-group>
 
+        <!-- 소셜미디어 사진 갤러리 -->
         <router-view></router-view>
         </v-sheet>
     </div>
@@ -66,8 +73,14 @@ h2 {
     border-radius: 50px;
 
 }
-.tagnav a {
-    text-decoration-line: none ;
+a {
+    text-decoration: none;
+}
+.router-link-exact-active {
+    text-decoration: none;
+    background-color: #60CE9C;
+    color: white;
+    font-weight: bold;
 }
 
 </style>

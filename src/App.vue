@@ -97,16 +97,18 @@
       left
       temporary
       >
-      <v-toolbar flat>
-          <v-list nav dense>
-              <v-list-item>
-                  <v-list-item-avatar>
-                          <v-icon class="grey white--text">mdi-account</v-icon>
+      <v-toolbar flat color="#60CE9C" dark extended extension-height="20">
+          <v-list nav dense >
+              <v-list-item >
+                  <v-list-item-avatar class="mt-3">
+                          <v-img src="https://cdn.pixabay.com/photo/2021/02/19/13/13/travel-6030190__480.png"></v-img>
                       </v-list-item-avatar>
 
-                  <v-list-item-content>
-                      <v-list-item-title><a href="#">마이페이지</a></v-list-item-title>
-                      <v-list-item-subtitle ><a href="#">로그인</a></v-list-item-subtitle>
+                  <v-list-item-content id="user_toolbar">
+                      <v-list-item-title class="font-weight-bold text-subtitle-1 mt-3">
+                        <a href="#">마이페이지</a>
+                      </v-list-item-title>
+                      <v-list-item-title ><a href="#">로그인</a></v-list-item-title>
                   </v-list-item-content>
               </v-list-item>
           </v-list>
@@ -116,7 +118,7 @@
       <!-- 네비게이션 서랍 메뉴 -->
       <v-list>
           <v-list-item>
-              <v-list-item-content>
+              <v-list-item-content id="drawer-menu">
                   <v-list-item-title 
                   v-for="n in 5" :key="n"
                   class="ma-3"> Menu {{n}}</v-list-item-title>
@@ -158,7 +160,7 @@ export default {
   methods: {
     submitSearch: function() {
       this.search = false;
-      this.$router.push('/tripa');
+      this.$router.go('/tripa');
       
     }
   }
@@ -166,6 +168,11 @@ export default {
 </script>
 
 <style scoped>
+#user_toolbar a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
 /deep/  .v-text-field { 
   width: 75%;
   margin-left: 5%;
