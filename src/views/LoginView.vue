@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-card class="pa-10">
+        
             <!-- Vuetify를 이용해서 입력창 디자인 -->
             <v-text-field label="아이디" 
                 v-model="userid" 
@@ -16,7 +16,7 @@
                 <v-btn @click="loginUser" class="primary">로그인</v-btn>
                 <v-btn @click="$router.push('/')">취소</v-btn>
             </v-card-actions>
-        </v-card>
+        
     </v-container>
 </template>
 
@@ -33,7 +33,7 @@ export default {
     methods: {
         loginUser() {
             this.$emit('login-user', this.userid);
-            this.$router.push('/');
+            this.$router.push('/tripa');
         }
 
     }

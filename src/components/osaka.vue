@@ -103,14 +103,18 @@
                             <span>예약하기</span>
                         </v-btn>
                     </template>
-
+                    
                     <v-card>
                         <v-card-title>예약하기</v-card-title>
-                        <v-card-text>
-                            <v-container>
-                                <v-calender ref="calender" v-model="value"></v-calender>
-                            </v-container>
-                        </v-card-text>
+                        <v-sheet>
+                            <v-row>
+                                <v-col cols="12" sm="6">
+                                    <v-date-picker v-model="dates" range></v-date-picker>
+                                </v-col>
+                            </v-row>
+                        </v-sheet>
+                            
+                            
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <v-btn
@@ -125,6 +129,7 @@
                             >다음</v-btn>
                         </v-card-actions>
                     </v-card>
+                    
                     
                 </v-dialog>
 
@@ -152,7 +157,7 @@ export default {
         inquire: false,
         reserve : false,
         filtericons: [ "mdi-airplane", "mdi-bed", "mdi-car-side", "mdi-ticket-percent" ],
-        value: '',
+        dates : [],
     }),
     methods : {
         addtoFavorites : function() {

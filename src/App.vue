@@ -107,11 +107,11 @@
                   <v-list-item-content id="user_toolbar">
 
                     <!-- 로그인했을 때 -->
-                    <div v-if="login" @login-user="showLogin">
+                    <div v-if="login">
                       <v-list-item-title 
-                      @click="$router.push('/mypage')"
+                      @click="$router.push(`/mypage/${this.user}`)"
                       class="font-weight-bold text-subtitle-1 mt-3">
-                        <a href="#">{{ this.user }}님의 페이지</a>
+                        <a href="#">{{ this.user }}님 환영합니다</a>
                       </v-list-item-title>
                       <v-list-item-title @click="logout"><a>로그아웃</a></v-list-item-title>
                     </div>
@@ -151,8 +151,8 @@
       <router-view name="hashtag"/>
       <!-- 해시태그 게시물 보이는 곳 -->
 
-      <router-view/> <!-- 이름 없는 라우터를 새 페이지로 연결시키기 위해서 이름 없는 router-view 를 넣어줘야함 -->
-
+      <!-- 이름 없는 라우터를 새 페이지로 연결시키기 위해서 이름 없는 router-view 를 넣어줘야함 -->
+      <router-view @login-user="showLogin"/>
 
     </v-main>
 
@@ -182,9 +182,9 @@ export default {
       this.$router.go('/tripa');
       
     },
-    showLogin(userid) {
+    showLogin(user) {
       this.login = true;
-      this.user = userid;
+      this.user = user;
     },
     logout() {
       this.login = false;
