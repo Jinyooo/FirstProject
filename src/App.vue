@@ -3,7 +3,7 @@
 
     <!-- 상단 바 -->
     <v-app-bar
-      
+      app
       flat
       class="transparent"
     >
@@ -105,10 +105,19 @@
                       </v-list-item-avatar>
 
                   <v-list-item-content id="user_toolbar">
-                      <v-list-item-title class="font-weight-bold text-subtitle-1 mt-3">
-                        <a href="#">마이페이지</a>
+                      <div v-if="login">
+                        <v-list-item-title class="font-weight-bold text-subtitle-1 mt-3">
+                          <a @click="$router.push(`/user/${user}`)">마이페이지</a>
+                        </v-list-item-title>
+                        <v-list-item-title >
+                          {{user}}님 환영합니다
+                        </v-list-item-title>
+                      </div>
+                      <v-list-item-title 
+                        v-else
+                        @click="$router.push('/login')"><a href="#">
+                          로그인해주세요</a>
                       </v-list-item-title>
-                      <v-list-item-title ><a href="#">로그인</a></v-list-item-title>
                   </v-list-item-content>
               </v-list-item>
           </v-list>
@@ -134,7 +143,7 @@
       <router-view name="hashtag"/>
       <!-- 해시태그 게시물 보이는 곳 -->
 
-      <router-view/> <!-- 이름 없는 라우터를 새 페이지로 연결시키기 위해서 이름 없는 router-view 를 넣어줘야함 -->
+      <router-view @login-user="showLogin" /> <!-- 이름 없는 라우터를 새 페이지로 연결시키기 위해서 이름 없는 router-view 를 넣어줘야함 -->
 
 
     </v-main>
@@ -152,6 +161,8 @@ export default {
   data: () => ({
     drawer : false,
     model : null,
+    login : false,
+    user : '',
     showname : false,
     destinations : store.destinations,   
     search: false,
@@ -162,7 +173,12 @@ export default {
       this.search = false;
       this.$router.go('/tripa');
       
-    }
+    },
+    showLogin: function(user) {
+      this.user = user;
+      this.login = true;
+    },
+    
   }
 };
 </script>
